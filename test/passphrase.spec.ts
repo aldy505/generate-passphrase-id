@@ -67,6 +67,17 @@ describe('generate-passphrase', () => {
       expect(generated[i]).to.match(/[A-Z]/g);
     }
   });
+  it('should generate all uppercase word pattern', () => {
+    const generated = generateMultiple(25, { numbers: false, uppercase: true });
+    for (let j = 0; j < generated.length; j += 1) {
+      for (let i = 0; i < generated[j].length; i += 1) {
+        const genSplit = generated[j].split('-');
+        for (let k = 0; k < genSplit.length; k += 1) {
+          expect(genSplit[k]).to.match(/[A-Z]/g);
+        }
+      }
+    }
+  });
   it('should generate all titlecase word pattern', () => {
     const generated = generate({ numbers: false, titlecase: true }).split('-');
     for (let i = 0; i < generated.length; i += 1) {
@@ -74,6 +85,19 @@ describe('generate-passphrase', () => {
       expect(perWord[0]).to.match(/[A-Z]/g);
       expect(perWord[1]).to.match(/[a-z]/g);
       expect(perWord[2]).to.match(/[a-z]/g);
+    }
+  });
+  it('should generate all titlecase word pattern', () => {
+    const generated = generateMultiple(25, { numbers: false, titlecase: true });
+    for (let j = 0; j < generated.length; j += 1) {
+      for (let i = 0; i < generated[j].length; i += 1) {
+        const genSplit = generated[j].split('-');
+        for (let k = 0; k < genSplit.length; k += 1) {
+          const perWord = genSplit[k].split('');
+          expect(perWord[0]).to.match(/[A-Z]/g);
+          expect(perWord[1]).to.match(/[a-z]/g);
+        }
+      }
     }
   });
   it('should have different separator', () => {
