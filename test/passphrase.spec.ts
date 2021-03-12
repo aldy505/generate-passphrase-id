@@ -15,15 +15,15 @@ describe('generate-passphrase', () => {
     assert.isArray(generated);
     expect(generated.length).to.be.equal(5);
   });
-  it('should generate 10 multiple passphrase without options', () => {
-    const generated = generateMultiple(10);
+  it('should generate 25 multiple passphrase without options', () => {
+    const generated = generateMultiple(25);
     assert.isArray(generated);
-    expect(generated.length).to.be.equal(10);
+    expect(generated.length).to.be.equal(25);
   });
-  it('should generate 15 multiple passphrase without options', () => {
-    const generated = generateMultiple(15);
+  it('should generate 50 multiple passphrase without options', () => {
+    const generated = generateMultiple(50);
     assert.isArray(generated);
-    expect(generated.length).to.be.equal(15);
+    expect(generated.length).to.be.equal(50);
   });
   it('should generate a passphrase with size length', () => {
     const generated = generate({ length: 10 });
@@ -37,7 +37,10 @@ describe('generate-passphrase', () => {
     }
   });
   it('should output error for unknown pattern', () => {
-    expect(() => (generate({ pattern: 'AAA' }))).to.throw('Unknown pattern found. Use N or W instead.');
+    expect(() => generate({ pattern: 'AAA' })).to.throw('Unknown pattern found. Use N or W instead.');
+  });
+  it('should output error for length = 0', () => {
+    expect(() => generate({ length: 0 })).to.throw('Length should be 1 or bigger. It should not be zero.');
   });
   it('should generate all word pattern with pattern: WWWWW', () => {
     const generated = generate({ pattern: 'WWWWW' }).split('-');
@@ -66,7 +69,6 @@ describe('generate-passphrase', () => {
   });
   it('should generate all titlecase word pattern', () => {
     const generated = generate({ numbers: false, titlecase: true }).split('-');
-    console.log(generated)
     for (let i = 0; i < generated.length; i += 1) {
       const perWord = generated[i].split('');
       expect(perWord[0]).to.match(/[A-Z]/g);
@@ -102,6 +104,12 @@ describe('generate-passphrase', () => {
       const perWord = generated[i].split('');
       expect(perWord[0]).to.match(/[0-9A-Z]/g);
       expect(perWord[1]).to.match(/[0-9a-z]/g);
+    }
+  });
+  it('should not have any spaces', () => {
+    const generated = generate({ pattern: 'WWWWWWWWWWW' }).split('-');
+    for (let i = 0; i < generated.length; i += 1) {
+      expect(generated[i]).not.to.match(/[ ]/g);
     }
   });
 });

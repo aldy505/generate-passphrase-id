@@ -1,3 +1,8 @@
+/**
+ * @module generate-passphrase-id
+ * @author Reinaldy Rafli <hi@reinaldyrafli.com>
+ * @license MIT
+ */
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
@@ -25,7 +30,7 @@ function getRandomValue(): number {
 
 function getRandomNumber(max: number): number {
   let rand = getRandomValue();
-  while (rand >= 256 - (256 % max)) {
+  while (rand === undefined || rand >= 256 - (256 % max)) {
     rand = getRandomValue();
   }
   return rand % max;
@@ -40,7 +45,7 @@ function getRandomPattern(length: number, numbers: boolean): string {
   const pool = (numbers) ? 'NWW' : 'WWW';
   let pattern = '';
   for (let i = 0; i < length; i += 1) {
-    pattern += pool[getRandomNumber(pool.length)];
+    pattern += pool[getRandomNumber(2)];
   }
   return pattern;
 }
@@ -67,24 +72,53 @@ export function generate(options: generateOptions = {}): string {
   };
 
   const opts = { ...defaults, ...options };
-  const passphraseArray: Array<string|number> = [];
+
+  if (opts.length === 0) {
+    throw new Error('Length should be 1 or bigger. It should not be zero.');
+  }
+
+  const passphraseArray: Array<string | number> = [];
+
   let pattern: string;
   if (opts.pattern) {
     pattern = opts.pattern.toUpperCase();
   } else {
     pattern = getRandomPattern(opts.length, opts.numbers);
   }
+
   const eachPattern = pattern.split('');
   for (let i = 0; i < eachPattern.length; i += 1) {
     if (eachPattern[i] === 'N') {
       passphraseArray.push(getRandomValue());
     } else if (eachPattern[i] === 'W') {
+      let wordArr: Array<string>;
       const word = getRandomWord();
+      const randSort = getRandomNumber(1);
+
       if (opts.uppercase) {
-        passphraseArray.push(word.toUpperCase());
+        if (word.match(/[-]/g)) {
+          wordArr = word.split('-');
+        } else if (word.match(/[ ]/g)) {
+          wordArr = word.split(' ');
+        } else {
+          wordArr = [word, word, word];
+        }
+        passphraseArray.push(wordArr[randSort].toUpperCase());
       } else if (opts.titlecase) {
-        // TODO: Split words outputed by space and -, then put a titlecase one by one.
-        passphraseArray.push(word.replace(/\w\S*/g, (text) => text.charAt(0).toUpperCase() + text.substr(1).toLowerCase()));
+        if (word.match(/[-]/g)) {
+          wordArr = word.split('-');
+        } else if (word.match(/[ ]/g)) {
+          wordArr = word.split(' ');
+        } else {
+          wordArr = [word, word, word];
+        }
+        passphraseArray.push(wordArr[randSort].replace(/\w\S*/g, (text) => text.charAt(0).toUpperCase() + text.substr(1).toLowerCase()));
+      } else if (word.match(/[ ]/g)) {
+        wordArr = word.split(' ');
+        passphraseArray.push(wordArr[randSort]);
+      } else if (word.match(/[-]/g)) {
+        wordArr = word.split('-');
+        passphraseArray.push(wordArr[randSort]);
       } else {
         passphraseArray.push(word);
       }
