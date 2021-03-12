@@ -1,6 +1,6 @@
 # Generate Passphrase
 
-[![npm (tag)](https://img.shields.io/npm/v/generate-passphrase/next?style=flat-square)](https://www.npmjs.com/package/generate-passphrase) [![npm](https://img.shields.io/npm/dm/generate-passphrase?style=flat-square)](https://www.npmjs.com/package/generate-passphrase) [![Codecov](https://img.shields.io/codecov/c/github/aldy505/generate-passphrase?style=flat-square)](https://codecov.io/gh/aldy505/generate-passphrase) [![GitHub branch checks state](https://img.shields.io/github/checks-status/aldy505/generate-passphrase/master?style=flat-square)](https://github.com/aldy505/generate-passphrase/actions) [![GitHub](https://img.shields.io/github/license/aldy505/generate-passphrase?style=flat-square)](https://github.com/aldy505/generate-passphrase/blob/master/LICENSE)
+[![npm (tag)](https://img.shields.io/npm/v/generate-passphrase-id/next?style=flat-square)](https://www.npmjs.com/package/generate-passphrase-id) [![npm](https://img.shields.io/npm/dm/generate-passphrase-id?style=flat-square)](https://www.npmjs.com/package/generate-passphrase-id) [![Codecov](https://img.shields.io/codecov/c/github/aldy505/generate-passphrase-id?style=flat-square)](https://codecov.io/gh/aldy505/generate-passphrase-id) [![GitHub branch checks state](https://img.shields.io/github/checks-status/aldy505/generate-passphrase-id/master?style=flat-square)](https://github.com/aldy505/generate-passphrase-id/actions) [![GitHub](https://img.shields.io/github/license/aldy505/generate-passphrase-id?style=flat-square)](https://github.com/aldy505/generate-passphrase-id/blob/master/LICENSE)
 
 > ✨Zero dependency module for generating passphrase.
 
@@ -71,17 +71,17 @@ Benchmark for single passphrase/password:
 
 | Module | Ops/sec | Accuracy | Runs sampled |
 | --- | --- | --- | --- |
-| generate-passphrase-id | 8.76 | ±2.92% | 230 |
-| generate-password | 551,350 | ±1.93% | 331 |
-| niceware | 378,754 | ±2.11% | 347 | 
-| randomatic | 12,361 | ±0.97% | 336 |
+| generate-passphrase-id | 55.1 | ±1.96% | 317 |
+| generate-password | 622,154 | ±1.27% | 358 |
+| niceware | 402,647 | ±1.87% | 344 | 
+| randomatic | 12,435 | ±1.84% | 339 |
 
 Benchmark for multiple passphrase/password (`generateMultiple` function):
 
 | Module | Ops/sec | Accuracy | Runs sampled |
 | --- | --- | --- | --- |
-| generate-passphrase-id | 0.92 | ±0.91% | 156 |
-| generate-password | 61,347 | ±1.20% | 349 |
+| generate-passphrase-id | 5.46 | ±1.20% | 194 |
+| generate-password | 61,549 | ±1.63% | 349 |
 
 ## Contributing
 
