@@ -15,12 +15,14 @@ describe('generate-passphrase', () => {
     assert.isArray(generated);
     expect(generated.length).to.be.equal(5);
   });
-  it('should generate 25 multiple passphrase without options', () => {
+  it('should generate 25 multiple passphrase without options', function _() {
+    this.timeout(10000);
     const generated = generateMultiple(25);
     assert.isArray(generated);
     expect(generated.length).to.be.equal(25);
   });
-  it('should generate 50 multiple passphrase without options', () => {
+  it('should generate 50 multiple passphrase without options', function _() {
+    this.timeout(10000);
     const generated = generateMultiple(50);
     assert.isArray(generated);
     expect(generated.length).to.be.equal(50);
@@ -40,7 +42,7 @@ describe('generate-passphrase', () => {
     expect(() => generate({ pattern: 'AAA' })).to.throw('Unknown pattern found. Use N or W instead.');
   });
   it('should output error for length = 0', () => {
-    expect(() => generate({ length: 0 })).to.throw('Length should be 1 or bigger. It should not be zero.');
+    expect(() => generate({ length: 0 })).to.throw('Length should be 1 or bigger. It should not be zero or lower.');
   });
   it('should generate all word pattern with pattern: WWWWW', () => {
     const generated = generate({ pattern: 'WWWWW' }).split('-');
@@ -67,7 +69,8 @@ describe('generate-passphrase', () => {
       expect(generated[i]).to.match(/[A-Z]/g);
     }
   });
-  it('should generate all uppercase word pattern', () => {
+  it('should generate all uppercase word pattern', function _() {
+    this.timeout(10000);
     const generated = generateMultiple(25, { numbers: false, uppercase: true });
     for (let j = 0; j < generated.length; j += 1) {
       for (let i = 0; i < generated[j].length; i += 1) {
@@ -87,7 +90,8 @@ describe('generate-passphrase', () => {
       expect(perWord[2]).to.match(/[a-z]/g);
     }
   });
-  it('should generate all titlecase word pattern', () => {
+  it('should generate all titlecase word pattern', function _() {
+    this.timeout(10000);
     const generated = generateMultiple(25, { numbers: false, titlecase: true });
     for (let j = 0; j < generated.length; j += 1) {
       for (let i = 0; i < generated[j].length; i += 1) {

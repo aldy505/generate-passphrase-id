@@ -36,9 +36,10 @@ jobs:
       - name: Installling dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
-
       - name: Lint
-        run: npm run lint:fix
+        run: |
+          npx rimraf build
+          npm run lint:fix
       
       - name: Build
         run: npm run build
