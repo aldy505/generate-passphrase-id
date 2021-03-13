@@ -8,13 +8,13 @@ An Indonesian language fork of (also my repository) [generate-passphrase](https:
 
 It's working. But still it's a work in progress.
 
-The code is close to node [generate-password](https://github.com/brendanashworth/generate-password) repo. But this is for a passphrase, with English language.
+The code is close to node [generate-password](https://github.com/brendanashworth/generate-password) repo. But this is for a passphrase, with Indonesian language.
 
 ProtonMail has a [decent article](https://protonmail.com/blog/protonmail-com-blog-password-vs-passphrase/) explaining about password vs passphrase. 
 
 Is this secure? Yes. I don't use `Math.floor`, I used the `crypto` module.
 
-Why is this repo heavy? I'm using [sindresorhus' word-list repo](https://github.com/sindresorhus/word-list) for fetching the English word list. If you have a better idea/workaround for this, feel free to open up an issue and file a PR! I'll gladly accept any feedbacks.
+Why is this repo heavy? I'm using scraped words list from KBBI for fetching the Indonesian word list. If you have a better idea/workaround for this, feel free to open up an issue and file a PR! I'll gladly accept any feedbacks.
 
 ## Installation
 ```bash
@@ -89,4 +89,4 @@ Yes please.
 
 ## License
 
-[MIT](https://github.com/aldy505/generate-passphrase/blob/master/LICENSE)
+[MIT](https://github.com/aldy505/generate-passphrase-id/blob/master/LICENSE)

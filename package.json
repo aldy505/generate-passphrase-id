@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aldy505/generate-passphrase.git"
+    "url": "git+https://github.com/aldy505/generate-passphrase-id.git"
   },
   "keywords": [
     "passphrase",
@@ -44,9 +44,9 @@
   "author": "Reinaldy Rafli <hi@reinaldyrafli.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aldy505/generate-passphrase/issues"
+    "url": "https://github.com/aldy505/generate-passphrase-id/issues"
   },
-  "homepage": "https://github.com/aldy505/generate-passphrase#readme",
+  "homepage": "https://github.com/aldy505/generate-passphrase-id#readme",
   "engines": {
     "node": ">=10"
   },
