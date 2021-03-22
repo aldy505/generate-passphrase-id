@@ -6,8 +6,6 @@
 
 An Indonesian language fork of (also my repository) [generate-passphrase](https://github.com/aldy505/generate-passphrase).
 
-It's working. But still it's a work in progress.
-
 The code is close to node [generate-password](https://github.com/brendanashworth/generate-password) repo. But this is for a passphrase, with Indonesian language.
 
 ProtonMail has a [decent article](https://protonmail.com/blog/protonmail-com-blog-password-vs-passphrase/) explaining about password vs passphrase. 
@@ -18,9 +16,9 @@ Why is this repo heavy? I'm using scraped words list from KBBI for fetching the 
 
 ## Installation
 ```bash
-$ npm install generate-passphrase-id@next
+$ npm install generate-passphrase-id
 # or
-$ yarn add generate-passphrase-id@next
+$ yarn add generate-passphrase-id
 # or basically any package manager you like.
 ```
 
