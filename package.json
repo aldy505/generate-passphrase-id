@@ -16,7 +16,7 @@
   "files": [
     "build/index.cjs",
     "build/index.js",
-    "build/words.txt",
+    "build/id.txt",
     "build/src/index.d.ts",
     "README.md",
     "LICENSE"
