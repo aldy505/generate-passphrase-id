@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [10, 12, 14, 16]
+        node: [12, 14, 16]
 
     steps:
       - name: Checkout code
@@ -34,7 +34,7 @@ jobs:
         run: yarn run lint
       
       - name: Build
-        run: yarn  run build
+        run: yarn run build
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
