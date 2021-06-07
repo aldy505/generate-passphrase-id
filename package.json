@@ -1,6 +1,6 @@
 {
   "name": "generate-passphrase-id",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Zero dependency module - Secure random passphrase in Indonesian language",
   "main": "build/index.cjs",
   "module": "build/index.js",
