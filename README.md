@@ -6,6 +6,12 @@
 
 An Indonesian language fork of (also my repository) [generate-passphrase](https://github.com/aldy505/generate-passphrase).
 
+* 🚀 Simple passphrase generator with simple config
+* ✨ ESM support
+* 🔑 Cryptographically secure
+* 📕 Built-in Typescript typings
+* 🎊 Supports Node.js 10 and higher
+
 The code is close to node [generate-password](https://github.com/brendanashworth/generate-password) repo. But this is for a passphrase, with Indonesian language.
 
 ProtonMail has a [decent article](https://protonmail.com/blog/protonmail-com-blog-password-vs-passphrase/) explaining about password vs passphrase. 
@@ -37,7 +43,16 @@ const anotherPassphrase = generate({ length: 3, separator: '.', titlecase: true 
 const multiplePassphrase = generateMultiple(3)
 // ['pomologi-jerojol-kalau-senandika', 'kakek-meristem-89-emigras', ... ]
 const anotherMultiplePassphrase = generateMultiple(10, { length: 2, uppercase: true, numbers: false })
+```
 
+I know some of us need to generate it fast just for the sake of it, you can add `fast` as a parameter. (It defaults to false). Please bear in mind, this would make the returning random passphrase **not cryptographically secure**
+
+```js
+const fast = generate({ fast: true })
+// cultivars-strigose-avisements-58
+
+const extraFast = generateMultiple(5, { fast: true })
+// ['extrorsal-169-resultlessness-168', 'postmodern-kolkhozniki-skulkers-99', ... ]
 ```
 
 ## Options
