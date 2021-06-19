@@ -84,17 +84,19 @@ Benchmark for single passphrase/password:
 
 | Module | Ops/sec | Accuracy | Runs sampled |
 | --- | --- | --- | --- |
-| generate-passphrase-id | 68.53 | ±3.36% | 280 |
-| generate-password | 558,846 | ±1.25% | 344 |
-| niceware | 358,662 | ±1.84% | 329 | 
-| randomatic | 9,943 | ±3.17% | 301 |
+| generate-passphrase-id | 107,649 | ±1.89% | 407 |
+| generate-passphrase (`fast` enabled) | 503,082 | ±1.26% | 438 |
+| generate-password | 401,664 | ±1.33% | 335 |
+| niceware | 268,618 | ±1.95% | 319 | 
+| randomatic | 7,870 | ±3.16% | 307 |
 
 Benchmark for multiple passphrase/password (`generateMultiple` function):
 
 | Module | Ops/sec | Accuracy | Runs sampled |
 | --- | --- | --- | --- |
-| generate-passphrase-id | 6.95 | ±4.23% | 255 |
-| generate-password | 60,395 | ±1.42% | 343 |
+| generate-passphrase-id | 11,714 | ±1.37% | 425 |
+| generate-passphrase-id (`fast` enabled) | 50,090 | ±2.54% | 432 |
+| generate-password | 40,261 | ±2.26% | 332 |
 
 ## Contributing
 
