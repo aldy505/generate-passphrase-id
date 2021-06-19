@@ -1,32 +1,26 @@
-import typescript from 'rollup-plugin-typescript2';
-import {nodeResolve} from '@rollup/plugin-node-resolve';
+import ts from 'rollup-plugin-typescript2';
 import copy from 'rollup-plugin-copy';
 import {terser} from 'rollup-plugin-terser';
-
-const override = {compilerOptions: {module: 'ESNext', rootDir: '.'}};
 
 export default {
   input: 'src/index.ts',
   output: [
     {
-      file: 'build/index.cjs',
+      file: 'dist/index.cjs',
       format: 'cjs'
     },
     {
-      file: 'build/index.js',
+      file: 'dist/index.js',
       format: 'esm'
     }
   ],
-  external: [],
+  external: ['crypto', 'fs', 'path'],
   plugins: [
-    typescript({
-      include: ['./src/**/*.ts'], exclude: ['./test/**/*.ts'], clean: true, tsconfigOverride: override
-    }),
-    nodeResolve(),
+    ts(),
     terser({format: {comments: 'all'}}),
     copy({
       targets: [
-        {src: 'src/words.txt', dest: 'build'}
+        {src: 'src/words.txt', dest: 'dist'}
       ]
     })
   ]

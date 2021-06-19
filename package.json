@@ -2,22 +2,22 @@
   "name": "generate-passphrase-id",
   "version": "1.0.2",
   "description": "Zero dependency module - Secure random passphrase in Indonesian language",
-  "main": "build/index.cjs",
-  "module": "build/index.js",
-  "types": "build/src/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./build/index.js",
-      "require": "./build/index.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json",
     "./*": "./*"
   },
   "files": [
-    "build/index.cjs",
-    "build/index.js",
-    "build/words.txt",
-    "build/src/index.d.ts",
+    "dist/index.cjs",
+    "dist/index.js",
+    "dist/words.txt",
+    "dist/index.d.ts",
     "README.md",
     "LICENSE"
   ],
@@ -25,7 +25,7 @@
     "build": "rollup -c",
     "lint": "eslint --ext .ts,.js --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .ts,.js --fix --ignore-path .gitignore .",
-    "coverage": "nyc yarn run uvu",
+    "coverage": "c8 --reporter=lcov --reporter=text yarn run uvu",
     "uvu": "uvu -r ts-node/register test",
     "pretest": "rimraf build && yarn run lint && yarn run build",
     "test": "yarn run coverage",
@@ -59,23 +59,19 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "dependencies": {},
   "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "1.0.1",
-    "@rollup/plugin-node-resolve": "13.0.0",
     "@types/node": "15.12.1",
     "@typescript-eslint/eslint-plugin": "4.26.0",
     "@typescript-eslint/parser": "4.26.0",
     "benchmark": "2.1.4",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "^3.3.0",
+    "c8": "7.7.3",
+    "commitizen": "4.2.4",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "7.28.0",
-    "eslint-config-xo-space": "^0.27.0",
+    "eslint-config-xo-space": "0.27.0",
     "generate-password": "1.6.0",
     "microtime": "3.0.0",
-    "mocha": "8.4.0",
     "niceware": "2.0.2",
-    "nyc": "15.1.0",
     "randomatic": "3.1.1",
     "rimraf": "3.0.2",
     "rollup": "2.51.0",
@@ -86,6 +82,6 @@
     "ts-node": "10.0.0",
     "tslib": "2.2.0",
     "typescript": "4.3.2",
-    "uvu": "^0.5.1"
+    "uvu": "0.5.1"
   }
 }
