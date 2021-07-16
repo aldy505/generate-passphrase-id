@@ -85,7 +85,7 @@ opts('should still be uppercase if titlecase is also true', () => {
 
 opts('should have all uppercase words and numbers', () => {
   const generated = generate({
-    pattern: 'WWWNWWNWWN', uppercase: true, titlecase: true, numbers: true
+    pattern: 'WWWNWWNWWN', uppercase: true, titlecase: true, numbers: true,
   }).split('-');
   for (let i = 0; i < generated.length; i += 1) {
     assert.match(generated[i], /[0-9A-Z]/g);

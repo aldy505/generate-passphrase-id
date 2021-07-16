@@ -35,7 +35,7 @@ opts('should generate multiple passphrase with size length', () => {
   }
 });
 opts('should generate multiple all word pattern with numbers: false', () => {
-  const generated = generateMultiple(25, {numbers: false});
+  const generated = generateMultiple(50, {numbers: false});
   for (let i = 0; i < generated.length; i += 1) {
     const split = generated[i].split('-');
     for (let j = 0; j < split.length; j += 1) {
@@ -45,7 +45,7 @@ opts('should generate multiple all word pattern with numbers: false', () => {
 });
 
 opts('should generate all uppercase word pattern', () => {
-  const generated = generateMultiple(25, {numbers: false, uppercase: true});
+  const generated = generateMultiple(50, {numbers: false, uppercase: true});
   for (let j = 0; j < generated.length; j += 1) {
     for (let i = 0; i < generated[j].length; i += 1) {
       const genSplit = generated[j].split('-');
@@ -57,7 +57,7 @@ opts('should generate all uppercase word pattern', () => {
 });
 
 opts('should generate all titlecase word pattern', () => {
-  const generated = generateMultiple(25, {numbers: false, titlecase: true});
+  const generated = generateMultiple(50, {numbers: false, titlecase: true});
   for (let j = 0; j < generated.length; j += 1) {
     for (let i = 0; i < generated[j].length; i += 1) {
       const genSplit = generated[j].split('-');
