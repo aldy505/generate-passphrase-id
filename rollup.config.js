@@ -7,21 +7,21 @@ export default {
   output: [
     {
       file: 'dist/index.cjs',
-      format: 'cjs'
+      format: 'cjs',
     },
     {
-      file: 'dist/index.js',
-      format: 'esm'
-    }
+      file: 'dist/index.mjs',
+      format: 'es',
+    },
   ],
-  external: ['crypto', 'fs', 'path'],
+  external: ['crypto', 'fs', 'path', 'url'],
   plugins: [
     ts(),
     terser({format: {comments: 'all'}}),
     copy({
       targets: [
-        {src: 'src/words.txt', dest: 'dist'}
-      ]
-    })
-  ]
+        {src: 'src/words.txt', dest: 'dist'},
+      ],
+    }),
+  ],
 };

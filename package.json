@@ -27,7 +27,7 @@
     "lint": "eslint --ext .ts,.js --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .ts,.js --fix --ignore-path .gitignore .",
     "coverage": "c8 --reporter=lcov --reporter=text yarn run uvu",
-    "uvu": "--experimental-loader esbuild-node-loader node_modules/uvu/bin.js test",
+    "uvu": "node --experimental-loader esbuild-node-loader node_modules/uvu/bin.js test",
     "pretest": "rimraf build && yarn run lint && yarn run build",
     "test": "yarn run coverage",
     "benchmark": "node benchmark/benchmark"
